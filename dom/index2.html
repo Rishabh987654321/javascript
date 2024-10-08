@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+    
+</body>
+<script>
+    const div=document.createElement('div')
+    console.log(div);
+    div.className="main"
+    div.setAttribute("title","generated title")
+    div.style.backgroundColor="green"
+    div.style.padding="12px"
+
+    //div.innerText="This is a div"
+    //or the above step can also be done like this
+    const addtext=document.createTextNode("This is a div")
+    div.appendChild(addtext)
+
+    //now we can append this div into the body to be visible on the webpage
+    document.body.appendChild(div)
+ 
+</script>
+</html>

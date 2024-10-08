@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+    <ul class="language">
+        <li>Javascript</li>
+
+    </ul>
+</body>
+<script>
+    //using a function add a list element in the html
+    function addLanguage(langName){
+        const li=document.createElement('li')
+        li.innerHTML=`${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("Python")
+    addLanguage("Java")
+
+    //using optimise way to add a list element in the html
+    function addLang(langName){
+        const li=document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addLang("GoLang")
+
+    //editing these vaue that we have added in li
+    const editedLang=document.querySelector("li:nth-child(2)")
+    editedLang.innerHTML="Kotlin"
+
+    //optimised approach to edit these value
+    const newLi=document.createElement('li')
+    newLi.textContent="Ruby"
+    editedLang.replaceWith(newLi)
+
+    //ANOTHER METHOD TO EDIT THESE VALUES
+    const changeLi=document.querySelector("li:first-child")//it can be used to change the first element only
+    changeLi.outerHTML='<li>TypeScript</li>'
+
+
+    //process to remove these elements
+    const removeLang=document.querySelector('li:last-child')
+    removeLang.remove();
+</script>
+</html>
