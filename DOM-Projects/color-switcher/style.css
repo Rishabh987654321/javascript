@@ -1,0 +1,51 @@
+html{
+    margin: 0;
+}
+nav {
+    display: flex;
+    justify-content: center; /* Centers the anchor tags horizontally */
+    margin-top: 20px; /* Adds some space from the top */
+}
+
+nav a {
+    display: inline-block; /* Makes the anchor tags behave like buttons */
+    padding: 10px 20px; /* Adds space inside the buttons */
+    margin: 0 10px; /* Adds space between the buttons */
+    text-decoration: none; /* Removes the underline from the links */
+    background-color: #007BFF; /* Button background color (blue) */
+    color: white; /* Text color */
+    font-weight: bold; /* Makes the text bold */
+    border-radius: 5px; /* Adds rounded corners to the buttons */
+    border: 2px solid transparent; /* Adds a border, invisible by default */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for hover effect */
+}
+nav a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #003f7f; /* Adds a border on hover */
+}
+span{
+    display: block;
+}
+.canvas{
+    margin: 100px auto 100px;
+    width: 80%;
+    text-align: center;
+}
+.button{
+    width:100px ;
+    height: 100px;
+    border: solid black 2px;
+    display: inline-block;
+}
+#grey{
+    background: grey;
+}
+#white{
+    background: white;
+}
+#blue{
+    background: blue;
+}
+#yellow{
+    background: yellow;
+}
