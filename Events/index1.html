@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick=function(){
+    //     alert('You clicked on the owl image');
+    // }//this approach is actually not the best we can use it but this approach doesn't provide us with more methods
+
+
+    //type of events
+    // mouse events,keyboard events
+    //timestamp:ex changing time and date activity
+    //default prevented: preventing default behavior of the element
+    //target, toElement, srcElement, currenttarget
+    //altkey ,shiftkey,keycode,ctrlkey
+    //client x, clienkey,shiftkey,keycode
+    //all these events can be accesed from console.log(e) and we get pointer object that holds the value of all these event
+    
+    //best approach
+
+    document.getElementById('images').addEventListener('click',function(e){//event listener takes three arguments the third argument is by default false we don't need to write it unless we want it to be true
+        console.log("clicked inside the <ul> element");
+        
+    },false)
+
+    document.getElementById('owl').addEventListener('click',function( e /*event object*/ ){//event listener takes three arguments the third argument is by default false we don't need to write it unless we want it to be true
+        console.log("clicked on the owl image");
+        e.stopPropagation()//this will not stop the triggering of ul element and only "clicked on the owl image" will be printed
+    },false)
+
+    /*
+    1)Event propogation-> by default event propagation is false. Two scenarios are there
+    2) when we click on anyone of the ul element except owl then only this is "clicked inside the <ul> element" printed
+    3)when we click on owl the both "clicked inside the <ul> element" & "clicked on the owl image" is printed
+    4)this is called event bubbling 
+    5)there can be scenarios when we don't want both the event to work for this we have a method in event object e.stopPropagation()
+    */
+
+
+    //similar to stopPropagation we have preventDefault() which prevents the default behavior of the element EX shown below
+    document.getElementById('google').addEventListener('click',function(e){
+        e.preventDefault()
+        e.stopPropagation()//so that event bubbling does not happen and we don't get this output "clicked inside the <ul> element"
+        console.log("google clicked but default activity prevented");
+    })
+
+
+    //task whenever we click on any of the li elements the image should disappear
+    //instead of going and adding event listener to all the li elements we will directly add to ul tag
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e);//thid will give sll the event object and methods present 
+        console.log(e.target)//this will give the target element of the event in this case the img tag
+        console.log(e.target.parentNode);//it will give the parent node of the target in this case li tag
+        let removeImg=e.target.parentNode
+        removeImg.remove()
+        
+    })
+    
+</script>
+</html>
