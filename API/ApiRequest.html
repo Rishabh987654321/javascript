@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API REQUEST</title>
+</head>
+<body style="background-color: black;">
+    <!-- The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. An XHR client exists in one of the following states: -->
+     <!-- 
+        Value	State	            Description
+        0	    UNSENT	            Client has been created. open() not called yet.
+        1	    OPENED	            open() has been called.
+        2	    HEADERS_RECEIVED    send() has been called, and headers and status are available.
+        3	LOADING	Downloading;    responseText holds partial data.
+        4	    DONE	             The operation is complete.
+     -->
+    
+
+    <script>
+        // we will first study about the ajax request i.e xml request which was used in earlier days -->
+
+        //we first make a xml http object object
+        const xhr=new XMLHttpRequest()
+        const requestUrl='https://api.github.com/users/rishabh987654321'//our api
+
+        xhr.open('GET',requestUrl)//we are sending request here
+        //console.log(xhr.readyState);//here in console 1 will be printed meaning request has been sent this is the status code
+
+        //if we want to monitor each and every states after we send a request
+        //we can use onreadystatechange
+        xhr.onreadystatechange=function(){
+            console.log(xhr.readyState); 
+            if(xhr.readyState==4){
+                console.log(this.responseText);//this will give the response of api in object form
+                const data=this.responseText
+                console.log(typeof data);//type of data we are getting from api is string
+                console.log(data.location);//this will give undefined in console because most of the time data comes in string format and we can not access its properties  like we use to access objects
+
+                //so we have to convert this string into object/JSON we have to use JSON.parse
+                const result=JSON.parse(this.responseText)//parse string ko json me convert krdeta hai
+                console.log(typeof result);//now we will get type of object because we have converted string to json
+                console.log(result.location);//now we can access its properties
+            }
+        }
+        xhr.send()
+
+
+
+    </script>
+</body>
+</html>

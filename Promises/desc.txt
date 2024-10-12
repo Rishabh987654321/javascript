@@ -1,0 +1,14 @@
+1=> A Promise is an object representing the eventual completion or failure of an asynchronous operation.
+2=> promise is similar to asynchronous function ....it does not have to necessarily execute immediately
+3=> it runs in the background once completed it is pushed into the task queue and then in the call stack
+4=> scenarios where it is taking a lot of time for a task to complete we use either async await or promises
+5=> Since the result of an asynchronous operation isn’t immediately available, promises provide a mechanism to handle these operations by "promising" a value or failure at some point in the future.
+
+
+A Promise is in one of these states:
+
+pending: initial state, neither fulfilled nor rejected.
+fulfilled: meaning that the operation was completed successfully.
+rejected: meaning that the operation failed.
+
+When performing asynchronous operations (like fetching data from a server or reading a file), you won’t get the result immediately. In the past, developers used callbacks, but they often led to "callback hell"—a complex nesting of callbacks
