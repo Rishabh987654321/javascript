@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async JS</title>
+</head>
+<body>
+    <h1>HELLO WORLD!</h1>
+    <button id="stop">STOP</button>
+</body>
+<script>
+    //setTime out function this is not part of jS it is browser api and call stack send this function to web api from there it gets into task queue
+    //setTimeout ko handler chahiye hota hai ek tarah se callback function hota hai/normal function bhi ho skta hai
+    //or ek timeout leta hai
+    setTimeout(function(){
+        console.log("Hello World");
+    },2000)//executes this function after 2 sec
+
+    //upar wale function ko ham aise reference bhi deskte hai
+    const print=function(){
+        console.log("Rishabh");
+        
+    }
+    setTimeout(print,5000)//setTimeout ko zaruri ni ek callback function hi de aise reference deke bhi likh skte hai
+
+    //chaliye setTimeout se ham apne html ko modify krke dekhte hai
+    const changeText=function(){ 
+        document.querySelector('h1').innerHTML="HELLO RISHABH!"
+    }
+    const timeOutId=setTimeout(changeText,3000)
+    //agar setTimeout wale event ko exeute hone se rokna hai to uske like clearTimeout f=method hai
+    //upar wale html me ek stop button hai ...ham chahte hai agar koi user is stop button pe click krde withing 3sec to text change ni hona chahiye 
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(timeOutId)//don't give the refrence of setTimeout function here it wont work
+        console.log("Stopped");
+        
+    })
+    
+</script>
+</html>

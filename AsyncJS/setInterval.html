@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>I am Rishabh</h1>
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+</body>
+<script>
+    //setInterval out function this is not part of jS it is browser api and call stack send this function to web api from there it gets into task queue
+    //setInterval ko handler chahiye hota hai ek tarah se callback function hota hai/normal function bhi ho skta hai
+    //or ek timeout leta hai
+    //ye function har given timeinterval ke baad execute krta hai ek loop ki tarah
+    setInterval(() => {//this can also takes a third parameter it can be string or anything else
+        //console.log("hello rishabh");
+    }, 2000);//it will start printing hello rishabh every seconds and will not stop
+    
+    const sayCompanyName=function(str){
+        console.log(`I work at ${str}`);
+    }
+    const intervalId=setInterval(sayCompanyName,1000,"perceptiviti")
+    //now to stop this method whenever we want there is method clearInterval
+    clearInterval(intervalId)//now this will stop the above setInterval function and it wont run even single time
+
+
+
+    //now lets modify our html with this
+    let interval;
+    document.querySelector('#start').addEventListener('click',function(){
+        const print=function(){
+            console.log("hello world");//this will start printing hello world (after clicking on start button) every two seconds
+        }
+        
+        interval=setInterval(print,2000)
+    })
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearInterval(interval)//once we click on stop button the hello world will stop be printing
+    })
+</script>
+</html>

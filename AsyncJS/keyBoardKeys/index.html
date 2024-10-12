@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+        }
+        nav a{
+            background-color: blue;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold; /* Makes the text bold */
+            border-radius: 5px; /* Adds rounded corners to the buttons */
+            border: 2px solid transparent; /* Adds a border, invisible by default */
+        }
+        table,
+        th,
+        td{
+            border: 1px solid #e7e7e7;
+        }
+        .project{
+            margin-top: 15px;
+            background-color: #1c1c1c;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+        }
+        .color{
+            color: aliceblue;
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/AsyncJS/keyBoardKeys/index.html" aria-current="page">Home</a>
+        <a href="https://github.com/Rishabh987654321">Github</a>
+    </nav>
+    <div class="project">
+        <div id="insert">
+            <div class="key">Press the key and watch the magic</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
