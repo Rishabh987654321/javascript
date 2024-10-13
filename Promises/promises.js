@@ -135,7 +135,7 @@ getData()
 
 ///writing the same function using .then() .catch()
 
-fetch('https://api.github.com/users/rishabh987654321')
+fetch('https://api.github.com/users/rishabh987654321')//fetch is always executed first as compared to settimeout or any other promise/async fn because it goes into the priority queue
 .then((res)=>{
     return res.json()
 }).then((data)=>{

@@ -1,0 +1,11 @@
+//pehle xhr request chalti thi for api calls and fetching data from a database
+//but ye thoda implementation or error hndling me utna smooth ni tha
+// callback hell was major problem then using xhr
+
+//intro to fetch() web api
+//The Fetch API provides an interface for fetching resources (including across the network). It is a more powerful and flexible replacement for XMLHttpRequest.
+//the Fetch API uses Request and Response objects (and other things involved with network requests), as well as related concepts such as CORS and the HTTP Origin header semantics.
+
+//The fetch() method takes one mandatory argument, the path to the resource you want to fetch. It returns a Promise that resolves to the Response to that request — as soon as the server responds with headers — even if the server response is an HTTP error status
+//agar fetch ne error diya hai koi bhi 404 ya 500 to vo as a response ayega not as a error...error bs tabhi aata hai jb api request succesful ni ho payi hai
+
