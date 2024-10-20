@@ -31,6 +31,7 @@ function printName(){
 printName()//this will return undefined because this keyword is not defined in the function printName()
 
  //arrow function
+ //note arrow function me this keyword ka access ni hota hai
  const name=()=>{
     let name="Rishabh"
     console.log(this.name);//here also this will give undefined because this keyword is not defined in function
